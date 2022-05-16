@@ -1,4 +1,4 @@
-import { URL } from "../Local/localStorag.js";
+import { URL, getToken } from "../Local/localStorag.js";
 
 export const createUser = (endpoint, elements) => {
   return fetch(`${URL}${endpoint}`, {
@@ -28,4 +28,13 @@ export const loginUser = (endpoint, elements) => {
       password: elements.password,
     })
   });
+};
+export const getProducts = (endpoint) => {
+  return fetch(`${URL}${endpoint}` , {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': getToken(),
+    },
+  })
 };
