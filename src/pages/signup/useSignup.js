@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { createUser, loginUser } from "../../services/api";
 import { useNavigate } from "react-router-dom";
-import { createTokenAndRole } from "../../services/localStorage";
+import { TokenAndRole } from "../../Local/localStorag";
 
 const useFormSignup = () => {
   const [error, setError] = useState('')
@@ -44,11 +44,11 @@ const useFormSignup = () => {
       })
       .then((data) => {
         if (data.role === "attendent") {
-          createTokenAndRole(data.token, data.role);
+          TokenAndRole(data.token, data.role);
           loginUser("/auth", data);
           navigate("/menu");
         } else if (data.role === "chef") {
-          createTokenAndRole(data.token, data.role);
+          TokenAndRole(data.token, data.role);
           loginUser("/auth", data);
           navigate("/kitchen");
         }

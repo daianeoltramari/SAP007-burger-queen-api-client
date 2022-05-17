@@ -37,6 +37,7 @@
     ]
   },
   "devDependencies": {
+    "eslint-plugin-import": "^2.26.0",
     "jest": "^28.1.0"
   }
 }

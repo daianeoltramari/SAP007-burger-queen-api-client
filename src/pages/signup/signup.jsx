@@ -1,27 +1,29 @@
 import React from 'react';
-import useFormSignup from './useSihnup';
+import useFormSignup from './useSignup';
 
 const SignUp = () => {
-  const { handleChange, handleSubmit } = useFormSignup();
+  const { handleChange, handleSubmit, error } = useFormSignup();
+
   return (
-    <div className='main'>
+    <main className='main'>
       <section className='signup-page'>
-        <h1 className='form-title'>Cadastre-se</h1>
-        <label className='form-labels'>Seu nome</label>
-        <input className='form-input' type='text' placeholder='Nome' name='name' autoComplete='off' onChange={handleChange}/>
-        <label className='form-labels'>Cargo</label>
-        <select className='form-select' autoComplete='off' name='role' onChange={handleChange}>
+        <h1 className='signup-title'>Cadastre-se</h1>
+        <label className='signup-labels'>Seu nome</label>
+        <input className='signup-input' type='text' placeholder='Nome' name='name' autoComplete='off' onChange={handleChange}/>
+        <label className='signup-labels'>Cargo</label>
+        <select className='signup-select' autoComplete='off' name='role' onChange={handleChange}>
           <option value=''>Selecione um cargo</option>
-          <option value='attendent'>Atendente</option>
+          <option value='attendant'>Atendente</option>
           <option value='chef'>Chef de Cozinha</option>
         </select>
-        <label className='form-labels'>Email</label>
-        <input className='form-input' type='email' placeholder='username@example.com' name='email' autoComplete='off' onChange={handleChange}/>
-        <label className='form-labels'>Senha</label>
-        <input className='form-input' type='password' placeholder='Senha' name='password' onChange={handleChange}/>
-        <button className='form-button draw' type='submit' onClick={handleSubmit}>Cadastrar</button>  
+        <label className='signup-labels'>Email</label>
+        <input className='signup-input' type='email' placeholder='username@example.com' name='email' autoComplete='off' onChange={handleChange}/>
+        <label className='signup-labels'>Senha</label>
+        <input className='signup-input' type='password' placeholder='Senha' name='password' onChange={handleChange} />
+        <span className='errors-message'>{error}</span>
+        <button className='signup-button draw' type='submit' onClick={handleSubmit}>Cadastrar</button>  
       </section>
-    </div>
+    </main>
   );
 };
 
