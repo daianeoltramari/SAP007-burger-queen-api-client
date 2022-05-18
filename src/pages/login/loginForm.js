@@ -1,15 +1,16 @@
-import { useState } from 'react';
-import { loginUser } from '../../services/api';
-import { useNavigate } from 'react-router-dom';
+import { useState } from "react";
+import { loginUser } from "../../services/api";
+import { useNavigate } from "react-router-dom";
 import { TokenAndRole } from "../../Local/localStorag";
-//import { apiResponse } from '../../services/validate';
-
 
 const useFormLogin = () => {
+  const [error, setError] = useState("");
   const [items, setItems] = useState({
-    email: '',
-    password: '',
+    email: "",
+    password: "",
   });
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     return setItems(() => {
@@ -19,31 +20,27 @@ const useFormLogin = () => {
     });
   };
 
-  const navigate = useNavigate();
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    loginUser('auth', items)
-    .then((res) => {
-      switch (res.status) {
-        case 200:
-          return res.json();
-        case 400:
-          console.log('Falta algo a ser preenchido!');
-          break;
-        case 403:
-          console.log('E-mail já cadastrado');
-          break;
-        default:
-      }
-    })
+    loginUser("/auth", items)
+      .then((res) => {
+        switch (res.status) {
+          case 200:
+            return res.json();
+          case 400:
+            setError("E-mail e/ou senha inválidos!");
+            break;
+          default:
+            setError("Ops! Tente novamente mais tarde.");
+        }
+      })
       .then((data) => {
-        if (data.role === 'attendant') {
+        if (data.role === "attendant") {
           TokenAndRole(data.token, data.role);
-          navigate('/menu');
-        } else if (data.role === 'chef') {
+          navigate("/menu");
+        } else if (data.role === "chef") {
           TokenAndRole(data.token, data.role);
-          navigate('/kitchen');
+          navigate("/kitchen");
         }
       })
       .catch((error) => {
@@ -51,7 +48,7 @@ const useFormLogin = () => {
       });
   };
 
-  return { handleChange, handleSubmit };
+  return { handleChange, handleSubmit, error };
 };
 
 export default useFormLogin;
