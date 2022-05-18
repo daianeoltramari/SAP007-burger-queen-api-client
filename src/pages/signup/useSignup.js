@@ -4,13 +4,15 @@ import { useNavigate } from "react-router-dom";
 import { TokenAndRole } from "../../Local/localStorag";
 
 const useFormSignup = () => {
-  const [error, setError] = useState('')
+  const [error, setError] = useState("");
   const [elements, setElements] = useState({
     name: "",
     email: "",
     password: "",
     role: "",
   });
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     return setElements(() => {
@@ -20,26 +22,21 @@ const useFormSignup = () => {
     });
   };
 
-  const navigate = useNavigate();
-
   const handleSubmit = (e) => {
     e.preventDefault();
     createUser("/users", elements)
       .then((res) => {
         switch (res.status) {
           case 200:
-            console.log("Deu certo!");
             return res.json();
           case 400:
-            console.log("Falta algo a ser preenchido!");
-            setError('Falta algo a ser preenchido!')
+            setError("Falta algo a ser preenchido!");
             break;
           case 403:
-            console.log("E-mail já cadastrado");
-            setError('E-mail já cadastrado')
+            setError("E-mail já cadastrado");
             break;
           default:
-            console.log("Algo deu errado. Tente novamente mais tarde!");
+            setError('Algo deu errado. Tente novamente mais tarde!')
         }
       })
       .then((data) => {
