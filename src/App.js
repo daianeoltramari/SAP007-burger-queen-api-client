@@ -1,5 +1,5 @@
 import React from "react";
-import Routes from "./routes/routes.js";
+import AllRoutes from "./routes/routes.js";
 
-const App = () => <Routes />;
+const App = () => <AllRoutes />;
 export default App;
