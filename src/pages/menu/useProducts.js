@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { getProducts } from "../../services/api";
+import { useEffect, useState } from 'react';
+import { getProducts } from '../../services/api';
 
 const useProducts = () => {
   const [products, setProducts] = useState([]);

@@ -1,7 +1,7 @@
-import React from "react";
-import useFormSignup from "./useSignup";
+import React from 'react';
+import useFormSignup from './useSignup';
 
-import logo from "../../img/logo.png";
+import logo from '../../img/logo.png';
 import styles from '../login/login-signup.module.css';
 
 const SignUp = () => {
