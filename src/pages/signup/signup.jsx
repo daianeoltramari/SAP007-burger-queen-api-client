@@ -1,28 +1,35 @@
-import React from 'react';
-import useFormSignup from './useSihnup';
+import React from "react";
+import useFormSignup from "./useSignup";
+
+import logo from "../../img/logo.png";
+import styles from '../login/login-signup.module.css';
 
 const SignUp = () => {
-  const { handleChange, handleSubmit } = useFormSignup();
+  const { handleChange, handleSubmit, error } = useFormSignup();
+
   return (
-    <div className='main'>
-      <section className='signup-page'>
-        <h1 className='form-title'>Cadastre-se</h1>
-        <label className='form-labels'>Seu nome</label>
-        <input className='form-input' type='text' placeholder='Nome' name='name' autoComplete='off' onChange={handleChange}/>
-        <label className='form-labels'>Cargo</label>
-        <select className='form-select' autoComplete='off' name='role' onChange={handleChange}>
-          <option value=''>Selecione um cargo</option>
-          <option value='attendent'>Atendente</option>
-          <option value='chef'>Chef de Cozinha</option>
-        </select>
-        <label className='form-labels'>Email</label>
-        <input className='form-input' type='email' placeholder='username@example.com' name='email' autoComplete='off' onChange={handleChange}/>
-        <label className='form-labels'>Senha</label>
-        <input className='form-input' type='password' placeholder='Senha' name='password' onChange={handleChange}/>
-        <button className='form-button draw' type='submit' onClick={handleSubmit}>Cadastrar</button>  
-      </section>
+    <div className={styles.root}>
+      <main className={styles.main}>
+        <picture>
+          <img src={logo} alt='Logo Vai Dar Bom' className={styles.logo} />
+        </picture>
+        <form>
+          <h2 className={styles.formTitle}>Cadastro</h2>
+          <input className={styles.inputForm} type='text' name='name' placeholder='Nome completo' autoComplete='off' onChange={handleChange}/>
+          <input className={styles.inputForm} type='email' placeholder='username@example.com' name='email' autoComplete='off' onChange={handleChange}/>
+          <input className={styles.inputForm} type='password' placeholder='Senha' name='password' onChange={handleChange} />
+          <span className={styles.errorMessage}>{error}</span>
+          <div className={styles.registrationSection}>
+            <select className={styles.selectForm} autoComplete='off' name='role' onChange={handleChange}>
+              <option className={styles.optionSelectForm} value=''>Cargo</option>
+              <option className={styles.optionSelectForm} value='attendant'>Atendente</option>
+              <option className={styles.optionSelectForm} value='chef'>Chef de Cozinha</option>
+            </select>
+            <button className={styles.btnRegister} type='submit' onClick={handleSubmit}>Cadastrar</button>  
+          </div>
+        </form>
+      </main>
     </div>
   );
 };
-
 export default SignUp;

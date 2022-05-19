@@ -1,16 +1,18 @@
 import { useState } from "react";
 import { createUser, loginUser } from "../../services/api";
 import { useNavigate } from "react-router-dom";
-import { createTokenAndRole } from "../../services/localStorage";
+import { TokenAndRole } from "../../Local/localStorag";
 
 const useFormSignup = () => {
-  const [error, setError] = useState('')
+  const [error, setError] = useState("");
   const [elements, setElements] = useState({
     name: "",
     email: "",
     password: "",
     role: "",
   });
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     return setElements(() => {
@@ -20,35 +22,30 @@ const useFormSignup = () => {
     });
   };
 
-  const navigate = useNavigate();
-
   const handleSubmit = (e) => {
     e.preventDefault();
     createUser("/users", elements)
       .then((res) => {
         switch (res.status) {
           case 200:
-            console.log("Deu certo!");
             return res.json();
           case 400:
-            console.log("Falta algo a ser preenchido!");
-            setError('Falta algo a ser preenchido!')
+            setError("Falta algo a ser preenchido!");
             break;
           case 403:
-            console.log("E-mail já cadastrado");
-            setError('E-mail já cadastrado')
+            setError("E-mail já cadastrado");
             break;
           default:
-            console.log("Algo deu errado. Tente novamente mais tarde!");
+            setError('Algo deu errado. Tente novamente mais tarde!')
         }
       })
       .then((data) => {
         if (data.role === "attendent") {
-          createTokenAndRole(data.token, data.role);
+          TokenAndRole(data.token, data.role);
           loginUser("/auth", data);
           navigate("/menu");
         } else if (data.role === "chef") {
-          createTokenAndRole(data.token, data.role);
+          TokenAndRole(data.token, data.role);
           loginUser("/auth", data);
           navigate("/kitchen");
         }
