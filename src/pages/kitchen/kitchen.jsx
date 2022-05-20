@@ -1,6 +1,6 @@
-import { useEffect } from "react";
-import useKitchen from "./useKitchen.js";
-import OrderCard from "../../components/orderCards";
+import { useEffect } from 'react';
+import useKitchen from './useKitchen.js';
+import OrderCard from '../../components/orderCards';
 
 const Kitchen = () => {
   const { setOrders, getData, ordersFiltered, handleStatus, orders, orderStatus} = useKitchen();

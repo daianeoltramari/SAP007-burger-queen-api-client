@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { getOrders, updateOrderStatus } from "../../services/api";
-import { getRole } from "../../services/storage";
+import { useState } from 'react';
+import { getOrders, updateOrderStatus } from '../../services/api';
+import { getRole } from '../../services/storage';
 
 const useKitchen = () => {
   const [orders, setOrders] = useState([]);

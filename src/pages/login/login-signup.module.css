@@ -1,7 +1,7 @@
 .root::before {
   content: "";
   background-color: #111111;
-  background-image: url("../../img/Background.jpg");
+  background-image: url("../../img/background.jpg");
   background-size: cover;
   top: 0;
   right: 0;
@@ -86,6 +86,12 @@
 
 .btnLogin {
   align-self: flex-end;
+}
+
+.btnRetornLogin {
+  align-self: flex-end;
+  margin-top: 1rem;
+  cursor: pointer;
 }
 
 .gotToRegistration {
