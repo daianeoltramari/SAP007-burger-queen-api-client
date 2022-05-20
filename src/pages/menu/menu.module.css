@@ -1,6 +1,6 @@
 .root::before {
     content: '';
-    background-color: var(--background-color-home);
+    background-color: var(--default-background);
     top: 0;
     right: 0;
     bottom: 0;
@@ -24,7 +24,7 @@
   }
   
   .logo {
-    width: 10rem;
+    width: 3rem;
     margin-top: 0.3rem;
     margin-right: 1rem;
   }
