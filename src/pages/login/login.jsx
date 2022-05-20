@@ -1,9 +1,9 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import useFormLogin from "./loginForm";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import useFormLogin from './loginForm';
 
-import logo from "../../img/logo.png";
-import styles from "./login-signup.module.css";
+import logo from '../../img/logo.png';
+import styles from './login-signup.module.css';
 
 const Login = () => {
   const { handleChange, handleSubmit, error } = useFormLogin();
