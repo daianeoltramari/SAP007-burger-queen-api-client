@@ -30,8 +30,9 @@
 }
 
 .logo {
-  height: 3.5rem;
+  height: 10.5rem;
   margin-bottom: 2rem;
+  margin-left: 8rem;
 }
 
 .formTitle {
@@ -108,7 +109,7 @@
     margin-right: 10%;
   }
   .logo {
-    height: 4.5rem;
+    height: 10.5rem;
     margin-bottom: 3rem;
   }
 }
