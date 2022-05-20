@@ -4,7 +4,7 @@ import { getRole } from "../../services/storage";
 
 const useProducts = () => {
   const [products, setProducts] = useState([]);
-  const [productsType, setProductsType] = useState("breakfast");
+  const [productsType, setProductsType] = useState('breakfast');
   const [flavor, setFlavor] = useState();
   const [complement, setComplement] = useState("");
   const [items, setItems] = useState([]);
