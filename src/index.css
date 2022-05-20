@@ -1,4 +1,6 @@
 @import './pages/login/login-signup.module.css';
+@import './pages/menu/menu.module.css';
+@import './components/components.module.css';
 
 :root {
     --default-font-color: #ffffff;
