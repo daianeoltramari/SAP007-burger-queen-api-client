@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getProducts } from "../../services/api";
-import { getRole } from "../../Local/localStorage.js";
+import { getRole } from "../../Local/localStorag";
 
 const useProducts = () => {
   const [products, setProducts] = useState([]);
