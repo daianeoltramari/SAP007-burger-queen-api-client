@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getProducts, sendOrder } from "../../services/api";
-import { getRole } from "../../Local/localStorag";
+import { getRole } from "../../services/storage";
 
 const useProducts = () => {
   const [products, setProducts] = useState([]);
