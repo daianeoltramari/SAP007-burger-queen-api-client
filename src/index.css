@@ -1,29 +1,26 @@
-@import './pages/login/login-signup.module.css';
-@import './pages/menu/menu.module.css';
-@import './components/components.module.css';
-
 :root {
-    --default-font-color: #ffffff;
-    --secondy-font-color: #8c8c8c;
-    --background-cards: #262526;
-    --default-background: #0d0c0c;
+  --default-font-color: #ffffff;
+  --secondy-font-color: #8c8c8c;
+  --background-cards: #262526;
+  --default-background: #0d0c0c;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    color: var(--default-font-color);
-    font-family: "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: var(--default-font-color);
+  font-family: "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica,
+    Arial, sans-serif;
 }
 
 form {
-    display: flex;
-    flex-direction: column;
-    width: 17rem;
+  display: flex;
+  flex-direction: column;
+  width: 17rem;
 }
 
-@media only screen and (min-width:769px) {
-    form {
-        width: 20rem;
-    }
+@media only screen and (min-width: 769px) {
+  form {
+    width: 20rem;
+  }
 }

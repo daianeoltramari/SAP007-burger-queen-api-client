@@ -8,6 +8,7 @@ import MenuHamburguer from '../../components/menuHamburguer';
 import logo from '../../img/logo.png';
 import styles from './menu.module.css';
 
+
 const Menu = () => {
   const { 
     handleButtonTypeClick,

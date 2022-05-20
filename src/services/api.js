@@ -1,4 +1,4 @@
-import { URL, getToken } from "../Local/localStorag.js";
+import { URL, getToken } from "./storage.js";
 
 export const createUser = (endpoint, items) => {
   return fetch(`${URL}${endpoint}`, {

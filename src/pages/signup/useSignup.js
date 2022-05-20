@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { createUser, loginUser } from '../../services/api';
 import { useNavigate } from 'react-router-dom';
-import { TokenAndRole } from '../../Local/localStorag';
+import { TokenAndRole } from '../../services/storage';
 
 const useFormSignup = () => {
   const [error, setError] = useState("");
