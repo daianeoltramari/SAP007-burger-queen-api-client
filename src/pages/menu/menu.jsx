@@ -1,6 +1,6 @@
 //import React, { useState } from "react";
-import useProducts from './useProducts';
-import ProductCards from '../../components/productInfos';
+import useProducts from "./useProducts";
+import ProductCards from "../../components/productInfos";
 
 const Menu = () => {
   const {
