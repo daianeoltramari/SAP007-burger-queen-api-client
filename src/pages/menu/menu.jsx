@@ -1,12 +1,11 @@
-//import React, { useState } from "react";
-import useProducts from "./useProducts";
-import ProductCards from "../../components/productInfos";
-import Cart from "../../components/cart";
-import ResultPrice from "../../components/resultPrice";
-import MenuHamburguer from "../../components/menuHamburguer";
+import useProducts from './useProducts';
+import ProductCards from '../../components/productInfos';
+import Cart from '../../components/cart';
+import ResultPrice from '../../components/resultPrice';
+import MenuHamburguer from '../../components/menuHamburguer';
 
-import logo from "../../img/logo.png";
-import styles from "./menu.module.css";
+import logo from '../../img/logo.png';
+import styles from './menu.module.css';
 
 const Menu = () => {
   const {
@@ -18,6 +17,7 @@ const Menu = () => {
     handleAddItem,
     handleSendToKitchen,
     handleOrderChange,
+    handleDeleteProducts,
     total,
     items,
     orderError,
@@ -166,6 +166,7 @@ const Menu = () => {
                     price={item.price}
                     qtd={item.qtd}
                     type={item.sub_type}
+                    onClick={() => handleDeleteProducts(item)}
                   />
                 );
               })}

@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import useKitchen from './useKitchen.js';
 import OrderCard from '../../components/orderCards';
-import styles from './kitchen.module.css';
+import styles from './kitchen-order.module.css';
 import MenuHamburguer from '../../components/menuHamburguer.jsx';
 import logo from '../../img/logo.png';
 
@@ -40,16 +40,16 @@ const Kitchen = () => {
 
   return (
     <div className={styles.root}>
-      <main className="kitchen-main">
+      <main>
         <nav>
-          <nav className={styles.navBar}>
+          <section className={styles.navBar}>
             <div className={styles.menuHamburguer}>
               <MenuHamburguer />
             </div>
             <picture>
               <img src={logo} alt="Cê que sabe" className={styles.logo} />
             </picture>
-          </nav>
+          </section>
         </nav>
         <ul className={styles.wishList}>
           {ordersFiltered().map((elem) => {

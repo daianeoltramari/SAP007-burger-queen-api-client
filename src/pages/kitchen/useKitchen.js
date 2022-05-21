@@ -5,6 +5,7 @@ import { getRole } from '../../services/storage';
 const useKitchen = () => {
   const [orders, setOrders] = useState([]);
   const [orderStatus, setOrderStatus] = useState([]);
+  const [error, setError] = useState('');
 
   const getData = () => {
     getOrders("/orders")
@@ -48,7 +49,7 @@ const useKitchen = () => {
         );
       }
     } else {
-      console.log("Apenas um(a) chef pode iniciar/finalizar um pedido");
+      setError('Apenas o(a) chef pode atualizar um pedido');
     }
   };
 
