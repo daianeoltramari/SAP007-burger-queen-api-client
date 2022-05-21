@@ -23,7 +23,6 @@ const useProducts = () => {
 
   const handleButtonTypeClick = (e) => {
     setProductsType(e.target.value);
-    console.log(e.target.value);
   };
   const handleSelectFlavor = (e) => setFlavor(e.target.value);
   const handleSelectComplement = (e) => setComplement(e.target.value);
@@ -50,13 +49,37 @@ const useProducts = () => {
         );
       }
       return filterHamburguer;
-      // return products.filter((elem) => elem.sub_type === 'hamburguer')
-      // return products.filter((elem) => elem.id === 33 || elem.id === 42)
     } else if (productsType === "side" || productsType === "drinks") {
       return products.filter((elem) => elem.sub_type === productsType);
     }
     console.log(products);
     return [];
+  };
+
+  const handleDeleteProducts = (elem) => {
+    const foundItem = items.findIndex((item) => item.id === elem.id);
+    if (foundItem !== -1) {
+      const qtd = items[foundItem].qtd
+      if (qtd === 1) {
+        const removed = items
+        removed.splice(foundItem, 1)
+        setItems([...removed])
+      } else {
+        const newArr = items;
+        newArr[foundItem].qtd--;
+        setItems([...newArr])
+      }
+    } else {
+      setItems(
+        [...items,
+        {
+          id: elem.id,
+          qtd: elem.qtd,
+          name: elem.name,
+          price: elem.price,
+          flavor: elem.flavor
+        }]);
+    }
   };
 
   useEffect(() => {
@@ -99,6 +122,7 @@ const useProducts = () => {
     handleSelectFlavor,
     handleSelectComplement,
     handleAddItem,
+    handleDeleteProducts,
     items,
     handleSendToKitchen,
     handleOrderChange,

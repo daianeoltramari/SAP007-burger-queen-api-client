@@ -32,16 +32,16 @@ const initialStatus = (status) => {
   }
 };
 
-const OrderCard = ({ id, name, table, status, onClick, products }) => (
+const OrderCard = ({ id, name, table, status, onClick, products, error, }) => (
   <section className={styles.orderCardOrganization}>
     <div>
       <section className={styles.orderHeader}>
         <div className={styles.orderCustomer}>
-          <p className="order-info">Nome: {name}</p>
-          <p className="order-info">Mesa: {table}</p>
+          <p>Nome: {name}</p>
+          <p>Mesa: {table}</p>
         </div>
         <div className={styles.orderInformation}>
-          <p className="order-header">Pedido N°{id}</p>
+          <p>Pedido N°{id}</p>
           <p>Data e hora</p>
         </div>
       </section>
@@ -59,15 +59,12 @@ const OrderCard = ({ id, name, table, status, onClick, products }) => (
         })}
       </section>
     </div>
-    <section className={styles.orderFooter}>
-      <p className={styles.orderStatus}>{initialStatus(status)}</p>
-      <button
-        className={`kitchenChefButton ${colorClass(status)}`}
-        onClick={onClick}
-      >
-        {" "}
-        {nameButton(status)}{" "}
-      </button>
+    <section>
+      <p className={styles.errorMessage}>{error}</p>
+      <div className={styles.orderFooter}>
+        <p className={styles.orderStatus}>{initialStatus(status)}</p>
+        <button className={`kitchenChefButton ${colorClass(status)}`} onClick={onClick}> {nameButton(status)} </button>
+      </div>
     </section>
   </section>
 );
