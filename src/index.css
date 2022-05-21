@@ -1,12 +1,15 @@
-@import './pages/login/login-signup.module.css';
-@import './pages/menu/menu.module.css';
-@import './components/components.module.css';
+@import "./pages/login/login-signup.module.css";
+@import "./pages/menu/menu.module.css";
+@import "./components/components.module.css";
 
 :root {
   --default-font-color: #ffffff;
   --secondy-font-color: #8c8c8c;
   --background-cards: #5e5748;
   --default-background: #0d0c0c;
+  --background-color-home: #272829;
+  --default-red: #e23c2e;
+  --default-green: #309746;
 }
 
 * {

@@ -1,15 +1,16 @@
-import { useEffect, useState } from 'react';
-import { getProducts, sendOrder } from '../../services/api';
-import { getRole } from '../../services/storage';
+import { useEffect, useState } from "react";
+import { getProducts, sendOrder } from "../../services/api";
+import { getRole } from "../../services/storage";
 
 const useProducts = () => {
   const [products, setProducts] = useState([]);
-  const [productsType, setProductsType] = useState('breakfast');
+  const [productsType, setProductsType] = useState("breakfast");
   const [flavor, setFlavor] = useState();
   const [complement, setComplement] = useState("");
   const [items, setItems] = useState([]);
   const [total, setTotal] = useState(0);
   const [orderInfo, setOrderInfo] = useState({ client: "", table: "" });
+  const [orderError, setOrderError] = useState("");
 
   const getData = async () => {
     const data = await getProducts("/products");
@@ -81,12 +82,14 @@ const useProducts = () => {
         .then((data) => {
           if (data.code === 400) {
             console.log("Preencha os campos com as informações do cliente");
+            setOrderError("Preencher nome e mesa do cliente");
           } else {
             console.log("Pedido enviado para a cozinha com sucesso");
             setItems([]);
+            setOrderInfo("");
           }
         });
-    } 
+    }
   };
 
   return {
@@ -100,6 +103,7 @@ const useProducts = () => {
     handleSendToKitchen,
     handleOrderChange,
     total,
+    orderError,
   };
 };
 export default useProducts;
