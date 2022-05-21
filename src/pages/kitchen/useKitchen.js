@@ -60,6 +60,7 @@ const useKitchen = () => {
     getData,
     ordersFiltered,
     handleStatus,
+    error,
   };
 };
 export default useKitchen;
