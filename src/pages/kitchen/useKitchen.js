@@ -1,18 +1,20 @@
-import { useState } from "react";
-import { getOrders, updateOrderStatus } from "../../services/api";
-import { getRole } from "../../services/localStorage.js";
+import { useState } from 'react';
+import { getOrders, updateOrderStatus } from '../../services/api';
+import { getRole } from '../../services/storage';
 
 const useKitchen = () => {
   const [orders, setOrders] = useState([]);
   const [orderStatus, setOrderStatus] = useState([]);
+  const [error, setError] = useState('');
 
+  //Pegando o pedido da API e ordenando
   const getData = () => {
     getOrders("/orders")
-      .then((data) => sortById(data))
+      .then((data) => sortId(data))
       .then((newData) => setOrders(newData));
   };
 
-  const sortById = (data) => {
+  const sortId = (data) => {
     return data.sort((a, b) => {
       return b.id - a.id;
     });
@@ -24,6 +26,7 @@ const useKitchen = () => {
     );
   };
 
+  //Mudança do status do pedido
   const handleStatus = (elem) => {
     if (getRole() === "chef") {
       if (elem.status === "pending") {
@@ -48,7 +51,7 @@ const useKitchen = () => {
         );
       }
     } else {
-      console.log("Apenas um(a) chef pode iniciar/finalizar um pedido");
+      setError('Apenas o(a) chef pode atualizar um pedido');
     }
   };
 
@@ -59,6 +62,7 @@ const useKitchen = () => {
     getData,
     ordersFiltered,
     handleStatus,
+    error,
   };
 };
 export default useKitchen;

@@ -1,7 +1,7 @@
 .root::before {
   content: "";
   background-color: #111111;
-  background-image: url("../../img/Background.jpg");
+  background-image: url("../../img/background.jpg");
   background-size: cover;
   top: 0;
   right: 0;
@@ -30,8 +30,9 @@
 }
 
 .logo {
-  height: 3.5rem;
+  height: 10.5rem;
   margin-bottom: 2rem;
+  margin-left: 8rem;
 }
 
 .formTitle {
@@ -87,6 +88,12 @@
   align-self: flex-end;
 }
 
+.btnRetornLogin {
+  align-self: flex-end;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
 .gotToRegistration {
   margin-top: 3rem;
   display: inline-flex;
@@ -94,9 +101,15 @@
   align-items: center;
 }
 
-.textGotToRegistration {
-  font-size: 0.8rem;
+.textGotToRegistration,
+.textGotToLogin {
+  font-size: 0.75rem;
   margin-right: 1rem;
+}
+
+.textGotToLogin {
+  background: none;
+  border: none;
 }
 
 @media only screen and (min-width: 769px) {
@@ -108,7 +121,7 @@
     margin-right: 10%;
   }
   .logo {
-    height: 4.5rem;
+    height: 10.5rem;
     margin-bottom: 3rem;
   }
 }

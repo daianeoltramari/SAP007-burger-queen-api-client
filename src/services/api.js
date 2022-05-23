@@ -1,5 +1,6 @@
-import { URL, getToken } from "../Local/localStorag.js";
+import { URL, getToken } from './storage.js';
 
+//Criar usúario
 export const createUser = (endpoint, items) => {
   return fetch(`${URL}${endpoint}`, {
     method: "POST",
@@ -16,6 +17,7 @@ export const createUser = (endpoint, items) => {
   });
 };
 
+//Login
 export const loginUser = (endpoint, items) => {
   return fetch(`${URL}${endpoint}`, {
     method: "POST",
@@ -29,6 +31,7 @@ export const loginUser = (endpoint, items) => {
   });
 };
 
+//Buscar os produtos
 export const getProducts = (endpoint) => {
   return fetch(`${URL}${endpoint}`, {
     method: "GET",
@@ -39,7 +42,8 @@ export const getProducts = (endpoint) => {
   }).then((res) => res.json());
 };
 
-export const sendOrder = (endpoint, orderInfo, addItem) => {
+//Cria o pedido
+export const sendOrder = (endpoint, orderInfo, items) => {
   return fetch(`${URL}${endpoint}`, {
     method: "POST",
     headers: {
@@ -49,11 +53,12 @@ export const sendOrder = (endpoint, orderInfo, addItem) => {
     body: JSON.stringify({
       client: orderInfo.client,
       table: orderInfo.table,
-      products: addItem,
+      products: items,
     }),
   });
 };
 
+//Manda para cozinha e pedidos prontos
 export const getOrders = (endpoint) => {
   return fetch(`${URL}${endpoint}`, {
     method: "GET",
@@ -64,6 +69,7 @@ export const getOrders = (endpoint) => {
   }).then((res) => res.json());
 };
 
+//Modifica o status do pedido
 export const updateOrderStatus = (endpoint, id, status) => {
   id = id.toString();
   return fetch(`${URL}${endpoint}${id}`, {
