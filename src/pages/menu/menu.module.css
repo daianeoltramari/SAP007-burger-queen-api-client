@@ -51,6 +51,7 @@
   .selectionButton {
     border: none;
     background: transparent;
+    cursor: pointer;
   }
   
   .flavorAndComplementSelection {

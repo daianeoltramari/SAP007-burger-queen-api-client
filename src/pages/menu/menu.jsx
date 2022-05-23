@@ -1,11 +1,11 @@
-import useProducts from './useProducts';
-import ProductCards from '../../components/productInfos';
-import Cart from '../../components/cart';
-import ResultPrice from '../../components/resultPrice';
-import MenuHamburguer from '../../components/menuHamburguer';
+import useProducts from "./useProducts";
+import ProductCards from "../../components/productInfos";
+import Cart from "../../components/cart";
+import ResultPrice from "../../components/resultPrice";
+import MenuHamburguer from "../../components/menuHamburguer";
 
-import logo from '../../img/logo.png';
-import styles from './menu.module.css';
+import logo from "../../img/logo.png";
+import styles from "./menu.module.css";
 
 const Menu = () => {
   const {
@@ -17,10 +17,12 @@ const Menu = () => {
     handleAddItem,
     handleSendToKitchen,
     handleOrderChange,
-    handleDeleteProducts,
+    handleDeleteItems,
     total,
     items,
     orderError,
+    orderInfo,
+    flavor,
   } = useProducts();
 
   return (
@@ -31,7 +33,11 @@ const Menu = () => {
             <MenuHamburguer />
           </div>
           <picture>
-            <img src={logo} alt="Cê que sabe" className={styles.logo} />
+            <img
+              src={logo}
+              alt="Logotipo Vai Dar Bom"
+              className={styles.logo}
+            />
           </picture>
         </nav>
         <section className={styles.attendantTabe}>
@@ -71,16 +77,15 @@ const Menu = () => {
                 <section className={styles.flavorAndComplementSelection}>
                   <select
                     className={styles.selectFlavor}
-                    defaultValue={"sabor"}
+                    value={flavor}
                     onChange={handleSelectFlavor}
                   >
-                    <option value="sabor">Sabor</option>
+                    <option value="">Sabor</option>
                     <option value="carne">Carne</option>
                     <option value="frango">Frango</option>
                     <option value="vegetariano">Vegetariano</option>
                   </select>
                   <div
-                    defaultValue={"complemento"}
                     className={styles.selectComplement}
                     onChange={handleSelectComplement}
                   >
@@ -134,15 +139,16 @@ const Menu = () => {
                 name="client"
                 autoComplete="off"
                 onChange={handleOrderChange}
+                value={orderInfo.client}
               />
               <select
                 className={styles.clientTable}
-                defaultValue={"0"}
                 autoComplete="off"
                 name="table"
                 onChange={handleOrderChange}
+                value={orderInfo.table}
               >
-                <option value="0">MESA</option>
+                <option value="">MESA</option>
                 <option value="1">Mesa 1</option>
                 <option value="2">Mesa 2</option>
                 <option value="3">Mesa 3</option>
@@ -166,7 +172,7 @@ const Menu = () => {
                     price={item.price}
                     qtd={item.qtd}
                     type={item.sub_type}
-                    onClick={() => handleDeleteProducts(item)}
+                    onClick={() => handleDeleteItems(item)}
                   />
                 );
               })}

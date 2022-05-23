@@ -6,42 +6,27 @@ import Kitchen from "../pages/kitchen/kitchen";
 import Order from "../pages/order/order";
 import PrivateRoute from "./privateRoute";
 
-const AllRoute = () => {
+const AllRoutes = () => {
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <div>
         <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route
-            path="/menu"
-            element={
-              <PrivateRoute redirectTo="/">
-                <Menu />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/kitchen"
-            element={
-              <PrivateRoute redirectTo="/">
-                <Kitchen />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/order"
-            element={
-              <PrivateRoute redirectTo="/">
-                <Order />
-              </PrivateRoute>
-            }
-          />
+          <Route path='/' element={<Login />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/signup' element={<SignUp />} />
+          <Route path='/menu' element={<PrivateRoute redirectTo="/">
+            <Menu /> 
+          </PrivateRoute>} />
+          <Route path='/kitchen' element={<PrivateRoute redirectTo="/">
+            <Kitchen /> 
+          </PrivateRoute>} />
+          <Route path='/order' element={<PrivateRoute redirectTo="/">
+            <Order />
+          </PrivateRoute>} />
         </Routes>
       </div>
     </Router>
   );
-};
+}
 
-export default AllRoute;
+export default AllRoutes;

@@ -14,6 +14,16 @@
   margin-left: 1rem;
 }
 
+.priceContainerAndDelete {
+  display: flex;
+  align-items: center;
+}
+
+.deleteItem {
+  margin-left: 0.5rem;
+}
+
+/* MENU HAMBURGUER */
 .icon {
   height: 44px;
   width: fit-content;
@@ -25,16 +35,6 @@
   cursor: pointer;
 }
 
-.priceContainerAndDelete {
-  display: flex;
-  align-items: center;
-}
-
-.deleteItem {
-  margin-left: 0.5rem;
-}
-
-/* MENU HAMBURGUER */
 .hamburguer {
   height: 3px;
   width: 37px;
@@ -216,10 +216,6 @@ ul {
   align-items: center;
 }
 
-.orderInformation {
-  justify-items: end;
-}
-
 .orderItemList {
   padding: 1rem 0.5rem;
 }
@@ -261,6 +257,7 @@ ul {
   border-radius: 0.3rem;
   background-color: var(--default-green);
   padding: 0 0.5rem;
+  cursor: pointer;
 }
 
 .prepared {

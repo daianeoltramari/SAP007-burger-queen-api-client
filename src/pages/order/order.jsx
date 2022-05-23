@@ -5,12 +5,13 @@ import styles from '../kitchen/kitchen-order.module.css';
 import MenuHamburguer from '../../components/menuHamburguer.jsx';
 import logo from '../../img/logo.png';
 
+//Renderizar pedidos prontos e remove ao servi
 const Order = () => {
   const { getData, ordersFiltered, handleStatus, error } = useOrder();
   useEffect(() => {
     const interval = setInterval(() => {
       return getData();
-    }, 5000);
+    }, 3000);
     return () => clearInterval(interval);
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -23,7 +24,7 @@ const Order = () => {
               <MenuHamburguer />
             </div>
             <picture>
-              <img src={logo} alt="Logo Vai Dar Bom" className={styles.logo} />
+              <img src={logo} alt="Cê que sabe" className={styles.logo} />
             </picture>
           </section>
         </nav>

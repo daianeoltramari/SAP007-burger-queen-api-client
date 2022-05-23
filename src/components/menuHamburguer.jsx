@@ -22,15 +22,33 @@ const MenuHamburguer = () => {
           <ul className={styles.hamburguerMenuListItems}>
             {getRole() === "attendant" ? (
               <li>
-                <button onClick={() => { navigate('/menu') }}>MENU</button>
+                <button
+                  onClick={() => {
+                    navigate("/menu");
+                  }}
+                >
+                  MENU
+                </button>
               </li>
             ) : (
               <li>
-                <button onClick={() => { navigate('/kitchen') }}>COZINHA</button>
+                <button
+                  onClick={() => {
+                    navigate("/kitchen");
+                  }}
+                >
+                  COZINHA
+                </button>
               </li>
             )}
             <li>
-            <button onClick={() => { navigate('/order') }}>PEDIDOS PRONTOS</button>
+              <button
+                onClick={() => {
+                  navigate("/order");
+                }}
+              >
+                PEDIDOS PRONTOS
+              </button>
             </li>
             <li className={styles.logoutButton}>
               <button

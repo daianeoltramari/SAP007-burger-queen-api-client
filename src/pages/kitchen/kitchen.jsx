@@ -13,15 +13,20 @@ const Kitchen = () => {
     handleStatus,
     orders,
     orderStatus,
+    error,
   } = useKitchen();
 
+
+  // renderiza o pedido e limpa o interval ao finalizar o pedido.
   useEffect(() => {
     const interval = setInterval(() => {
       return getData();
-    }, 5000);
+    }, 3000);
     return () => clearInterval(interval);
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
+
+  //Quando o status for 'Finalizado', irá remover o pedido
   useEffect(() => {
     if (orderStatus.status === "finalizado") {
       return orderStatus.map((order) => {
@@ -65,6 +70,7 @@ const Kitchen = () => {
                   createdAt={elem.createdAt}
                   onClick={() => handleStatus(elem)}
                   products={product}
+                  error={error}
                 />
               </li>
             );

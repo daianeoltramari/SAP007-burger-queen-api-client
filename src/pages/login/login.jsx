@@ -1,12 +1,12 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import useFormLogin from "./loginForm";
+import FormLogin from "./loginForm";
 
 import logo from "../../img/logo.png";
 import styles from "./login-signup.module.css";
 
 const Login = () => {
-  const { handleChange, handleSubmit, error } = useFormLogin();
+  const { handleChange, handleSubmit, error } = FormLogin();
   const navigate = useNavigate();
   return (
     <div className={styles.root}>

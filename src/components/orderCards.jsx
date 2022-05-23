@@ -1,48 +1,53 @@
 import React from "react";
 import OrderProducts from "./orderProduct";
 import styles from "./components.module.css";
+import { TimeOrInterval } from './time/time';
+import { PreparationTime } from './time/preparationTime';
+import { initialStatus } from "./time/date";
 
 const nameButton = (status) => {
-  if (status === "pending") {
-    return "Preparar";
-  } else if (status === "preparando") {
-    return "Finalizar";
+  if (status === 'pending') {
+    return 'Preparar';
+  } else if (status === 'preparando') {
+    return 'Finalizar';
   } else {
-    return "Servir";
+    return 'Servir';
   }
 };
 
 const colorClass = (status) => {
-  if (status === "pending") {
-    return "";
-  } else if (status === "preparando") {
-    return "prepared";
+  if (status === 'pending') {
+    return '';
+  } else if (status === 'preparando') {
+    return 'prepared';
   } else {
-    return "finish";
+    return 'finish';
   }
 };
 
-const initialStatus = (status) => {
-  if (status === "pending") {
-    return "Pendente";
-  } else if (status === "preparando") {
-    return "Preparando";
-  } else {
-    return "Finalizado";
-  }
-};
-
-const OrderCard = ({ id, name, table, status, onClick, products, error, }) => (
+const OrderCard = ({
+  id,
+  name,
+  table,
+  status,
+  onClick,
+  createdAt,
+  updatedAt,
+  products,
+  error,
+}) => (
   <section className={styles.orderCardOrganization}>
     <div>
       <section className={styles.orderHeader}>
         <div className={styles.orderCustomer}>
-          <p>Nome: {name}</p>
           <p>Mesa: {table}</p>
+          <p>{name}</p>
         </div>
         <div className={styles.orderInformation}>
           <p>Pedido N°{id}</p>
-          <p>Data e hora</p>
+          <TimeOrInterval
+            createdAt={createdAt}
+          />
         </div>
       </section>
       <section className={styles.orderItemList}>
@@ -60,6 +65,10 @@ const OrderCard = ({ id, name, table, status, onClick, products, error, }) => (
       </section>
     </div>
     <section>
+      <PreparationTime
+      createdAt={createdAt}
+      updatedAt={updatedAt}
+        />
       <p className={styles.errorMessage}>{error}</p>
       <div className={styles.orderFooter}>
         <p className={styles.orderStatus}>{initialStatus(status)}</p>

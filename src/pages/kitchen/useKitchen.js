@@ -7,13 +7,14 @@ const useKitchen = () => {
   const [orderStatus, setOrderStatus] = useState([]);
   const [error, setError] = useState('');
 
+  //Pegando o pedido da API e ordenando
   const getData = () => {
     getOrders("/orders")
-      .then((data) => sortById(data))
+      .then((data) => sortId(data))
       .then((newData) => setOrders(newData));
   };
 
-  const sortById = (data) => {
+  const sortId = (data) => {
     return data.sort((a, b) => {
       return b.id - a.id;
     });
@@ -25,6 +26,7 @@ const useKitchen = () => {
     );
   };
 
+  //Mudança do status do pedido
   const handleStatus = (elem) => {
     if (getRole() === "chef") {
       if (elem.status === "pending") {
@@ -60,6 +62,7 @@ const useKitchen = () => {
     getData,
     ordersFiltered,
     handleStatus,
+    error,
   };
 };
 export default useKitchen;
