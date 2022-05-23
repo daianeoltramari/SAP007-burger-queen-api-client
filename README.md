@@ -1,70 +1,93 @@
-# Getting Started with Create React App
+## SOBRE O PROJETO
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Projeto realizado para uma pequena Hamburgueria, foi desenvolvido uma interface para ajudar no atendimento dos clientes, por meio de um tablet é retirado o pedido e enviado para a cozinha para que sejam preparados de forma ordenada e eficiente.
 
-## Available Scripts
+Este projeto tem duas áreas: interface (cliente) e API (servidor). Nosso cliente nos pediu para desenvolver uma interface que se integre com a [API](https://lab-api-bq.herokuapp.com/api-docs/).
 
-In the project directory, you can run:
+Nós temos 2 menus.
+Um muito simples para o café da manhã:
 
-### `npm start`
+> | Ítem                           | Preço R$ |
+> | ------------------------------ | -------- |
+> | Café americano                 | 5        |
+> | Café com leite                 | 7        |
+> | Sanduíche de presunto e queijo | 10       |
+> | Suco de fruta natural          | 7        |
+>
+> E outro menu para o resto do dia:
+>
+> | Ítem                     | Preço  |
+> | ------------------------ | ------ |
+> | **Hambúrgueres**         | **R$** |
+> | Hambúrguer simples       | 10     |
+> | Hambúrguer duplo         | 15     |
+> | **Acompanhamentos**      | **R$** |
+> | Batata frita             | 5      |
+> | Anéis de cebola          | 5      |
+> | **Bebidas**              | **R$** |
+> | Água 500ml               | 5      |
+> | Água 750ml               | 7      |
+> | Bebida gaseificada 500ml | 7      |
+> | Bebida gaseificada 750ml | 10     |
+>
+> **Importante:** Os clientes podem escolher entre hambúrgueres de carne bovina,
+> frango ou vegetariano. Além disso, por um adicional de R\$ 1,00 , eles podem
+> adicionar queijo **ou** ovo.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## HISTÓRIA DO USUARIO
 
-### `npm test`
+- História de usuário 1- Garçom/Garçonete deve poder entrar no sistema
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Eu, como garçom/garçonete quero entrar no sistema de pedidos.
 
-### `npm run build`
+- História de usuário 2- Garçom/Garçonete deve ser capaz de anotar o pedido do cliente
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Eu como garçom/garçonete quero poder anotar o pedido de um cliente para não
+depender da minha memória, saber quanto cobrar e poder enviar os pedidos para a
+cozinha para serem preparados em ordem.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- História de usuário 3- Chefe de cozinha deve ver os pedidos
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Eu como chefe de cozinha quero ver os pedidos dos clientes em ordem, poder
+marcar que estão prontos e poder notificar os garçons/garçonetes que o pedido
+está pronto para ser entregue ao cliente.
 
-### `npm run eject`
+- História de usuário 4- Garçom/Garçonete deve ver os pedidos prontos para servir
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Eu como garçom/garçonete quero ver os pedidos que estão prontos para entregá-los
+rapidamente aos clientes.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## PROTÓTIPOS
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+![LOGIN](./src/img/img-readme/Login.jpg)
+![CADASTRO](./src/img/img-readme/Cadastro.jpg)
+![MENU - CAFÉ DA MANHÃ](./src/img/img-readme/Caf%C3%A9%20da%20manh%C3%A3.jpg)
+![MENU - HAMBURGUER](./src/img/img-readme/Menu%20-%20Hamburguer.jpg)
+![MENU - COZINHA](./src/img/img-readme/Cozinha.jpg)
+![MENU - PEDIDOS PRONTOS](./src/img/img-readme/Pedidos%20Prontos.jpg)
 
-## Learn More
+## Paleta de cores
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![](src/img/img-readme/Paleta%20de%20cores.jpg)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## FLUXOGRAMA
 
-### Code Splitting
+![](src/img/img-readme/Fluxograma.jpg)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+## TESTES
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Foram realizados teste unitários, assíncronos e integrados.
 
-### Making a Progressive Web App
+Os testes de unidade cobrem no mínimo 80% de statements, functions, lines e branches.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+A aplicação segue 80% ou mais das pontuações de Performance, Progressive Web App, Accessibility e Best Practices do Lighthouse.
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![](src/img/img-readme/Lighthouse-login.png)
+![](src/img/img-readme/Lighthouse-menu.png)
+![](src/img/img-readme/Lighthouse-prontos.png)

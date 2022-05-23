@@ -13,12 +13,13 @@ const Kitchen = () => {
     handleStatus,
     orders,
     orderStatus,
+    error,
   } = useKitchen();
 
   useEffect(() => {
     const interval = setInterval(() => {
       return getData();
-    }, 5000);
+    }, 1000);
     return () => clearInterval(interval);
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -65,6 +66,7 @@ const Kitchen = () => {
                   createdAt={elem.createdAt}
                   onClick={() => handleStatus(elem)}
                   products={product}
+                  error={error}
                 />
               </li>
             );

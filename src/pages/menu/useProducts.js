@@ -59,26 +59,27 @@ const useProducts = () => {
   const handleDeleteProducts = (elem) => {
     const foundItem = items.findIndex((item) => item.id === elem.id);
     if (foundItem !== -1) {
-      const qtd = items[foundItem].qtd
+      const qtd = items[foundItem].qtd;
       if (qtd === 1) {
-        const removed = items
-        removed.splice(foundItem, 1)
-        setItems([...removed])
+        const removed = items;
+        removed.splice(foundItem, 1);
+        setItems([...removed]);
       } else {
         const newArr = items;
         newArr[foundItem].qtd--;
-        setItems([...newArr])
+        setItems([...newArr]);
       }
     } else {
-      setItems(
-        [...items,
+      setItems([
+        ...items,
         {
           id: elem.id,
           qtd: elem.qtd,
           name: elem.name,
           price: elem.price,
-          flavor: elem.flavor
-        }]);
+          flavor: elem.flavor,
+        },
+      ]);
     }
   };
 
@@ -104,30 +105,35 @@ const useProducts = () => {
         .then((res) => res.json())
         .then((data) => {
           if (data.code === 400) {
-            console.log("Preencha os campos com as informações do cliente");
             setOrderError("Preencher nome e mesa do cliente");
           } else {
-            console.log("Pedido enviado para a cozinha com sucesso");
             setItems([]);
-            setOrderInfo("");
+            setFlavor("");
+            setComplement("");
+            setOrderError("");
+            setOrderInfo({ client: "", table: "" });
           }
         });
+    } else {
+      setOrderError("Apenas o/a atendente fazer um pedido");
     }
   };
 
   return {
     handleButtonTypeClick,
     productsFiltered,
-    productsType,
-    handleSelectFlavor,
-    handleSelectComplement,
     handleAddItem,
+    handleSelectFlavor,
     handleDeleteProducts,
-    items,
+    handleSelectComplement,
     handleSendToKitchen,
     handleOrderChange,
+    productsType,
+    items,
     total,
     orderError,
+    orderInfo,
+    flavor,
   };
 };
 export default useProducts;
