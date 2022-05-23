@@ -5,12 +5,13 @@ import styles from '../kitchen/kitchen-order.module.css';
 import MenuHamburguer from '../../components/menuHamburguer.jsx';
 import logo from '../../img/logo.png';
 
+//Renderizar pedidos prontos e remove ao servi
 const Order = () => {
   const { getData, ordersFiltered, handleStatus, error } = useOrder();
   useEffect(() => {
     const interval = setInterval(() => {
       return getData();
-    }, 5000);
+    }, 3000);
     return () => clearInterval(interval);
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 

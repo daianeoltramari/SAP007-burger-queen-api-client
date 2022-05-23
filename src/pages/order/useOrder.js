@@ -7,7 +7,7 @@ const useOrder = () => {
   const [orderStatus, setOrderStatus] = useState([]);
   const [error, setError] = useState("");
 
-  const sortById = (data) => {
+  const sortId = (data) => {
     return data.sort((a, b) => {
       return b.id - a.id;
     });
@@ -15,7 +15,7 @@ const useOrder = () => {
 
   const getData = () => {
     getOrders("/orders")
-      .then((data) => sortById(data))
+      .then((data) => sortId(data))
       .then((newData) => setOrders(newData));
   };
 
@@ -23,6 +23,7 @@ const useOrder = () => {
     return orders.filter((item) => item.status === "finalizado");
   };
 
+  //Mudar o status para servido
   const handleStatus = (elem) => {
     if (getRole() === "attendant") {
       updateOrderStatus("/orders/", elem.id, "servido").then(() =>

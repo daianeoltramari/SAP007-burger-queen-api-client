@@ -17,7 +17,7 @@ const Menu = () => {
     handleAddItem,
     handleSendToKitchen,
     handleOrderChange,
-    handleDeleteProducts,
+    handleDeleteItems,
     total,
     items,
     orderError,
@@ -172,7 +172,7 @@ const Menu = () => {
                     price={item.price}
                     qtd={item.qtd}
                     type={item.sub_type}
-                    onClick={() => handleDeleteProducts(item)}
+                    onClick={() => handleDeleteItems(item)}
                   />
                 );
               })}
