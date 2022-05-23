@@ -3,6 +3,7 @@ import ProductCards from "../../components/productInfos";
 import Cart from "../../components/cart";
 import ResultPrice from "../../components/resultPrice";
 import MenuHamburguer from "../../components/menuHamburguer";
+import { getRole } from "../../services/storage";
 
 import logo from "../../img/logo.png";
 import styles from "./menu.module.css";
@@ -91,20 +92,34 @@ const Menu = () => {
                   >
                     <input
                       type="radio"
+                      id="no-complement"
+                      name="check"
+                      value=""
+                      className={styles.noComplement}
+                      onChange={handleSelectComplement}
+                    />{" "}
+                    {""}
+                    <label htmlFor="no-complement">sem complemento</label>
+                    <input
+                      type="radio"
+                      id="cheese"
                       name="check"
                       value="queijo"
                       className={styles.cheeseComplement}
                       onChange={handleSelectComplement}
                     />{" "}
-                    Queijo
+                    {""}
+                    <label htmlFor="cheese">queijo</label>
                     <input
                       type="radio"
+                      id="egg"
                       name="check"
                       value="ovo"
                       className={styles.eggComplement}
                       onChange={handleSelectComplement}
                     />{" "}
-                    Ovo
+                    {""}
+                    <label htmlFor="egg">ovo</label>
                   </div>
                 </section>
               ) : (
@@ -183,12 +198,16 @@ const Menu = () => {
                 <ResultPrice value={total} />
               </div>
               <p className={styles.orderError}>{orderError}</p>
-              <button
-                className={styles.finalizeOrder}
-                onClick={handleSendToKitchen}
-              >
-                Finalizar pedido
-              </button>
+              {getRole() === "attendant" ? (
+                <button
+                  className={styles.finalizeOrder}
+                  onClick={handleSendToKitchen}
+                >
+                  Finalizar pedido
+                </button>
+              ) : (
+                ""
+              )}
             </section>
           </section>
         </section>

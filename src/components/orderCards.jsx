@@ -1,27 +1,28 @@
 import React from "react";
 import OrderProducts from "./orderProduct";
 import styles from "./components.module.css";
-import { TimeOrInterval } from './time/time';
-import { PreparationTime } from './time/preparationTime';
+import { TimeInterval } from "./time/time";
+import { PreparationTime } from "./time/preparationTime";
 import { initialStatus } from "./time/date";
+import { getRole } from "../services/storage";
 
 const nameButton = (status) => {
-  if (status === 'pending') {
-    return 'Preparar';
-  } else if (status === 'preparando') {
-    return 'Finalizar';
-  } else {
-    return 'Servir';
+  if (status === "pending") {
+    return "Preparar";
+  } else if (status === "preparando") {
+    return "Finalizar";
+  } else if (status === "finalizado") {
+    return "Servir";
   }
 };
 
 const colorClass = (status) => {
-  if (status === 'pending') {
-    return '';
-  } else if (status === 'preparando') {
-    return 'prepared';
+  if (status === "pending") {
+    return "";
+  } else if (status === "preparando") {
+    return "prepared";
   } else {
-    return 'finish';
+    return "finish";
   }
 };
 
@@ -45,9 +46,7 @@ const OrderCard = ({
         </div>
         <div className={styles.orderInformation}>
           <p>Pedido N°{id}</p>
-          <TimeOrInterval
-            createdAt={createdAt}
-          />
+          <TimeInterval createdAt={createdAt} />
         </div>
       </section>
       <section className={styles.orderItemList}>
@@ -65,14 +64,31 @@ const OrderCard = ({
       </section>
     </div>
     <section>
-      <PreparationTime
-      createdAt={createdAt}
-      updatedAt={updatedAt}
-        />
+      <PreparationTime createdAt={createdAt} updatedAt={updatedAt} />
       <p className={styles.errorMessage}>{error}</p>
       <div className={styles.orderFooter}>
         <p className={styles.orderStatus}>{initialStatus(status)}</p>
-        <button className={`kitchenChefButton ${colorClass(status)}`} onClick={onClick}> {nameButton(status)} </button>
+        {(getRole() === "chef" && initialStatus(status) === "Pendente") ||
+        initialStatus(status) === "Preparando" ? (
+          <button
+            className={`kitchenChefButton ${colorClass(status)}`}
+            onClick={onClick}
+          >
+            {" "}
+            {nameButton(status)}{" "}
+          </button>
+        ) : getRole() === "attendant" &&
+          initialStatus(status) === "Finalizado" ? (
+          <button
+            className={`kitchenChefButton ${colorClass(status)}`}
+            onClick={onClick}
+          >
+            {" "}
+            {nameButton(status)}{" "}
+          </button>
+        ) : (
+          ""
+        )}
       </div>
     </section>
   </section>
