@@ -1,9 +1,9 @@
-import { useEffect } from 'react';
-import useOrder from './useOrder';
-import OrderCard from '../../components/orderCards';
-import styles from '../kitchen/kitchen-order.module.css';
-import MenuHamburguer from '../../components/menuHamburguer.jsx';
-import logo from '../../img/logo.png';
+import { useEffect } from "react";
+import useOrder from "./useOrder";
+import OrderCard from "../../components/orderCards";
+import styles from "../kitchen/kitchen-order.module.css";
+import MenuHamburguer from "../../components/menuHamburguer.jsx";
+import logo from "../../img/logo.png";
 
 //Renderizar pedidos prontos e remove ao servi
 const Order = () => {
@@ -11,7 +11,7 @@ const Order = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       return getData();
-    }, 3000);
+    }, 5000);
     return () => clearInterval(interval);
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
