@@ -82,8 +82,6 @@ rapidamente aos clientes.
 
 ## TESTES
 
-Foram realizados teste unitários, assíncronos e integrados.
-
 Os testes de unidade cobrem no mínimo 80% de statements, functions, lines e branches.
 
 A aplicação segue 80% ou mais das pontuações de Performance, Progressive Web App, Accessibility e Best Practices do Lighthouse.
