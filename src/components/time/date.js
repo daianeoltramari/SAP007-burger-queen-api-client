@@ -1,13 +1,11 @@
 import { differenceInMinutes, format } from "date-fns";
 
 export const initialStatus = (status) => {
-  if (status === "pending") {
-    return "Pendente";
-  } else if (status === "preparando") {
-    return "Preparando";
-  } else {
-    return "Finalizado";
+  const statuses = {
+    pending: "Pendente",
+    preparando: "Preparando",
   }
+  return statuses[status] || "Finalizado";
 };
 
 export const getTime = (dateString) => {
@@ -22,3 +20,4 @@ export const getInterval = (startDateString, endDateString) => {
   const preparedTime = differenceInMinutes(end, start);
   return preparedTime + " min";
 };
+

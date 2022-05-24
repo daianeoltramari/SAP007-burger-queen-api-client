@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import ResultPrice from "../components/resultPrice";
-import Cart from '../components/cart';
+import Cart from "../components/cart";
 
 const mockPrice = ["20"];
 
@@ -14,12 +14,11 @@ describe("ResultPrice Component", () => {
     });
   });
 });
+
 describe("Cart Component", () => {
   it("deve ter a classe deleteItem inicialmente", async () => {
     render(<Cart />);
-    const cartItem = await screen.findAllByRole("button");
-    cartItem.map((button) => {
-      return expect(button).toHaveClass("deleteItem");
-    });
+    const cartItem = await screen.findByRole("button");
+    expect(cartItem).toHaveClass("deleteItem");
   });
 });

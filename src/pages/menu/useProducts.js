@@ -109,7 +109,7 @@ const useProducts = () => {
         .then((res) => res.json())
         .then((data) => {
           if (data.code === 400) {
-            setOrderError("Preencher nome e mesa do cliente");
+            setOrderError("Dados insuficientes");
           } else { //limpar carinho.
             setItems([]);
             setFlavor("");

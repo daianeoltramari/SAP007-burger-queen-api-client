@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { getRole, removeRole, removeToken } from "../services/storage";
+import { getRole, logout } from "../services/storage";
 import styles from "./components.module.css";
 
 const MenuHamburguer = () => {
@@ -53,8 +53,7 @@ const MenuHamburguer = () => {
             <li className={styles.logoutButton}>
               <button
                 onClick={() => {
-                  removeToken();
-                  removeRole();
+                  logout();
                   navigate("/");
                 }}
               >

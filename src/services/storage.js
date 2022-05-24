@@ -8,5 +8,7 @@ export const TokenAndRole = (token, role) => {
 export const getToken = () => localStorage.getItem('token');
 export const getRole = () => localStorage.getItem('role');
 
-export const removeToken = () => localStorage.removeItem('token');
-export const removeRole = () => localStorage.removeItem('role');
+export const logout = (token, role) =>{
+  localStorage.removeItem('token', token);
+  localStorage.removeItem('role', role);
+}
